@@ -1,0 +1,23 @@
+{
+  "comment": "The SageFin MCP tools this plugin's skills name, with the parameters and result fields they rely on. scripts/check-skills.mjs fails when a skill names a tool that is not listed here. Keep this in step with the server.",
+  "tools": {
+    "list_categories": { "parameters": [], "fields": ["disabled"] },
+    "list_transactions": {
+      "parameters": ["uncategorized", "needsReview", "from", "to", "cursor"],
+      "fields": ["totalMatching", "nextCursor", "direction", "amount", "splits"]
+    },
+    "get_transaction": { "parameters": ["transactionId"], "fields": ["categorySource"] },
+    "set_transaction_category": { "parameters": ["transactionId", "categoryId"], "fields": [] },
+    "propose_category_changes": {
+      "parameters": ["changes", "summary"],
+      "fields": ["status", "refused"]
+    },
+    "get_change_set": { "parameters": ["changeSetId"], "fields": ["status"] },
+    "list_rules": { "parameters": [], "fields": [] },
+    "propose_transaction_rule": {
+      "parameters": ["conditionValues", "categoryId", "reason"],
+      "fields": ["matchCount"]
+    },
+    "get_rule_proposal": { "parameters": ["ruleProposalId"], "fields": ["status"] }
+  }
+}

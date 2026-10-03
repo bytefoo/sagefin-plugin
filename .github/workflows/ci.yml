@@ -1,0 +1,24 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Skills name only tools the server has
+        run: node scripts/check-skills.mjs
+      - name: Marketplace manifest
+        run: npx -y @anthropic-ai/claude-code plugin validate . --strict
+      - name: Plugin manifest
+        run: npx -y @anthropic-ai/claude-code plugin validate ./plugins/sagefin --strict

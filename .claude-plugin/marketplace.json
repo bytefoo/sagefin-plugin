@@ -1,0 +1,15 @@
+{
+  "name": "sagefin",
+  "description": "SageFin for AI apps",
+  "owner": {
+    "name": "ByteFoo",
+    "url": "https://sagefin.app"
+  },
+  "plugins": [
+    {
+      "name": "sagefin",
+      "source": "./plugins/sagefin",
+      "description": "Connects Claude to your SageFin household and teaches it to work on your books: categorize what is uncategorized, and suggest rules that keep it that way."
+    }
+  ]
+}

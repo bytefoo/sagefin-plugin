@@ -1,0 +1,23 @@
+{
+  "name": "sagefin",
+  "displayName": "SageFin",
+  "version": "0.1.0",
+  "description": "Connects Claude to your SageFin household and teaches it to work on your books: categorize what is uncategorized, and suggest rules that keep it that way.",
+  "author": {
+    "name": "ByteFoo",
+    "url": "https://sagefin.app"
+  },
+  "homepage": "https://sagefin.app/help/ai-app-access",
+  "repository": "https://github.com/bytefoo/sagefin-plugin",
+  "license": "MIT",
+  "keywords": ["sagefin", "personal-finance", "budgeting", "categorization"],
+  "userConfig": {
+    "api_token": {
+      "type": "string",
+      "title": "SageFin token",
+      "description": "A token from SageFin: Settings → Integrations. Tick MCP, Transactions and Categories. Tick write access only if you want Claude to propose changes.",
+      "required": true,
+      "sensitive": true
+    }
+  }
+}
