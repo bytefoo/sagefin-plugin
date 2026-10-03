@@ -16,9 +16,9 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-      - name: Skills name only tools the server has
+      - name: Skills, tools and manifests agree
         run: node scripts/check-skills.mjs
-      - name: Marketplace manifest
+      - name: Claude marketplace and plugin manifests
         run: npx -y @anthropic-ai/claude-code plugin validate . --strict
-      - name: Plugin manifest
-        run: npx -y @anthropic-ai/claude-code plugin validate ./plugins/sagefin --strict
+      - name: Claude plugin manifest
+        run: npx -y @anthropic-ai/claude-code plugin validate .claude-plugin/plugin.json --strict

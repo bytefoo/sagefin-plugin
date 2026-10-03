@@ -8,7 +8,7 @@
   "plugins": [
     {
       "name": "sagefin",
-      "source": "./plugins/sagefin",
+      "source": "./",
       "description": "Connects Claude to your SageFin household and teaches it to work on your books: categorize what is uncategorized, and suggest rules that keep it that way."
     }
   ]
