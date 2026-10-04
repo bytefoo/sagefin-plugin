@@ -6,7 +6,7 @@ and teaches them to work on your books.
 It is two things in one install:
 
 - **The connection.** It registers SageFin's MCP server, so Claude can read your accounts,
-  transactions, budgets and categories with a token you create.
+  transactions, budgets and categories once you sign in to SageFin.
 - **Skills.** Instructions that teach Claude how to do one job well with those tools. The first is
   **smart match**.
 
@@ -24,7 +24,7 @@ Claude, running on your machine, can. Smart match has it:
    you disagree with and accept the rest.
 4. Suggest a **rule** for any merchant that keeps coming up, so next month's are right on arrival.
 
-Nothing changes in SageFin until you accept it there, unless you set the token to apply changes
+Nothing changes in SageFin until you accept it there, unless you set a token to apply changes
 immediately. An applied batch can be taken back for 30 days. Claude cannot create a rule; it can
 only suggest one for you to save.
 
@@ -32,7 +32,8 @@ only suggest one for you to save.
 
 ### Claude Code
 
-One step. The plugin registers the SageFin server and asks for your token.
+The plugin registers the SageFin server, and Claude Code signs you in. There is no token to
+create or paste.
 
 ```bash
 claude plugin marketplace add bytefoo/sagefin-plugin
@@ -41,6 +42,13 @@ claude plugin marketplace add bytefoo/sagefin-plugin
 ```bash
 claude plugin install sagefin@sagefin
 ```
+
+The first time Claude uses SageFin, it opens a SageFin sign-in page in your browser. Sign in and
+approve it. If it does not open, run `/mcp`, pick `sagefin` and choose **Authenticate**.
+
+Claude Code can then **read only**. To let it propose changes, turn on **Can make changes** for it
+under **Connected apps** in SageFin's **Settings → Integrations**, and the household's "Allow MCP
+write tools" switch on the same screen. **Disconnect** there cuts it off.
 
 ### Codex
 
@@ -91,12 +99,12 @@ address `https://api.sagefin.app/mcp` and an `Authorization: Bearer` header carr
 
 ### Why only Claude Code is one step
 
-Each of these apps has its own way of taking a token from you, and only Claude Code's lets a
-plugin ask for one and pass it to the server. The others would install a server entry with no
-token, and every call would be refused. So outside Claude Code the plugin carries the skill and
-you add the server.
+SageFin lets an app sign in only once that app has been approved, and Claude Code is the only one
+so far. The others connect with a token, and none of them lets a plugin ask for one and pass it to
+the server: they would install a server entry with no token, and every call would be refused. So
+outside Claude Code the plugin carries the skill and you add the server.
 
-### The token
+### The token, for apps other than Claude Code
 
 Create one in SageFin under **Settings → Integrations**. That screen also shows the configuration
 to paste for the app you are connecting.
@@ -111,9 +119,9 @@ Then ask it to "run smart match", or to categorize your uncategorized transactio
 
 ## What leaves SageFin
 
-Whatever the token can read is sent to the AI app you connect, and through it to that app's model
-provider. That is your decision to make, per token. A token carries only the permissions you
-tick, and you can revoke it in SageFin at any time. The text of your transaction notes is never
+Whatever the app can read is sent to it, and through it to its model provider. That is your
+decision to make, per app. A token carries only the permissions you tick, and you can revoke it in
+SageFin at any time; an app you signed in can be disconnected there the same way. The text of your transaction notes is never
 returned by any tool. See
 [Connecting an AI app](https://sagefin.app/help/ai-app-access) for the full account.
 
@@ -124,7 +132,7 @@ skills/smart-match/SKILL.md        the skill, shared by every client
 tools.json                         the server tools the skills name
 
 .claude-plugin/marketplace.json    Claude Code's catalog: one plugin, this repo
-.claude-plugin/plugin.json         Claude Code: name, version, and the token it asks for
+.claude-plugin/plugin.json         Claude Code: name and version
 .mcp.json                          Claude Code: the SageFin MCP server
 plugin.json                        the shared Agent Plugins manifest, read by Codex and Cursor
 gemini-extension.json              Gemini CLI

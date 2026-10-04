@@ -56,8 +56,9 @@ for (const [file, manifest] of rest) {
   }
 }
 
-// Only Claude's manifest may register the MCP server. The others have no way to carry the
-// member's token, and a server entry without one answers every call with a 401.
+// Only Claude's manifest may register the MCP server. Claude Code signs in to SageFin itself;
+// the other apps are not approved to, so they connect with a token, which none of them lets a
+// plugin ask for. A server entry without one answers every call with a 401.
 for (const file of ["plugin.json", "gemini-extension.json"]) {
   if ("mcpServers" in manifests[file]) problems.push(`${file}: must not declare mcpServers`);
 }
