@@ -2,10 +2,7 @@
   "mcpServers": {
     "sagefin": {
       "type": "http",
-      "url": "https://api.sagefin.app/mcp",
-      "headers": {
-        "Authorization": "Bearer ${user_config.api_token}"
-      }
+      "url": "https://api.sagefin.app/mcp"
     }
   }
 }

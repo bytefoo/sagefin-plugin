@@ -1,8 +1,8 @@
 # Security
 
 This plugin holds no code that runs on your computer. It is a set of instructions and the address
-of SageFin's MCP server. The token you give it is stored by Claude Code in your system's secure
-credential store and sent only to `https://api.sagefin.app`.
+of SageFin's MCP server. It holds no credential: Claude Code signs you in to SageFin itself, holds
+that sign-in, and sends it only to SageFin.
 
 ## Reporting a vulnerability
 
@@ -14,6 +14,7 @@ pull request for it.
 Say what you found and how to reproduce it. A problem in SageFin itself, rather than in this
 plugin, can be reported the same way.
 
-## If a token gets out
+## If a sign-in or a token gets out
 
-Revoke it in SageFin under **Settings → Integrations**. It stops working at once.
+In SageFin, under **Settings → Integrations**, disconnect the app or revoke the token. Either stops
+working at once.
