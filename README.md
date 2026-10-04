@@ -47,8 +47,9 @@ The first time Claude uses SageFin, it opens a SageFin sign-in page in your brow
 approve it. If it does not open, run `/mcp`, pick `sagefin` and choose **Authenticate**.
 
 Claude Code can then **read only**. To let it propose changes, turn on **Can make changes** for it
-under **Connected apps** in SageFin's **Settings → Integrations**, and the household's "Allow MCP
-write tools" switch on the same screen. **Disconnect** there cuts it off.
+under **Connected apps** in SageFin's **Settings → Integrations**, and **Allow apps to make
+changes** at the top of the same screen, which only the household's owner can change.
+**Disconnect** there cuts it off.
 
 ### Codex
 
@@ -111,8 +112,8 @@ to paste for the app you are connecting.
 
 - Tick **MCP**, **Transactions** and **Categories**. Add **Accounts**, **Budgets** or **Cash
   flow** if you also want to ask about those.
-- To let the app propose changes, give the token write access and turn on the household's
-  "Allow MCP write tools" switch on the same screen. Without both, it is read-only.
+- To let the app propose changes, give the token write access and turn on **Allow apps to make
+  changes** at the top of the same screen. Without both, it is read-only.
 - Leave bulk changes on **Ask me first** unless you want batches applied without review.
 
 Then ask it to "run smart match", or to categorize your uncategorized transactions.
