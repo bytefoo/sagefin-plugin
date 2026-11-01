@@ -1,8 +1,8 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "sagefin",
-  "version": "0.2.0",
-  "description": "Skills that teach an AI app to work on your SageFin books: categorize what is uncategorized, and suggest rules that keep it that way.",
+  "version": "0.3.0",
+  "description": "Skills that teach an AI app to work on your SageFin books: categorize what is uncategorized, suggest rules that keep it that way, and keep accounts SageFin cannot connect current from their statements.",
   "author": {
     "name": "ByteFoo",
     "url": "https://sagefin.app"
@@ -14,6 +14,7 @@
     "sagefin",
     "personal-finance",
     "budgeting",
-    "categorization"
+    "categorization",
+    "statements"
   ]
 }

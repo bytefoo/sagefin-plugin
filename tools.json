@@ -18,6 +18,31 @@
       "parameters": ["conditionValues", "categoryId", "reason"],
       "fields": ["matchCount"]
     },
-    "get_rule_proposal": { "parameters": ["ruleProposalId"], "fields": ["status"] }
+    "get_rule_proposal": { "parameters": ["ruleProposalId"], "fields": ["status"] },
+    "get_account_balances": { "parameters": [], "fields": ["accounts", "manual"] },
+    "list_manual_accounts": {
+      "parameters": [],
+      "fields": ["accounts", "accountId", "name", "accountType", "liability", "institution", "latestBalanceOn", "positionsAsOf", "transferred"]
+    },
+    "create_manual_account": {
+      "parameters": ["name", "accountType", "subtype", "institution", "website", "dryRun"],
+      "fields": ["applied", "accountId", "institution"]
+    },
+    "set_manual_account_institution": {
+      "parameters": ["accountId", "institution", "website", "dryRun"],
+      "fields": ["applied", "changed", "institution"]
+    },
+    "record_account_balance": {
+      "parameters": ["accountId", "asOfDate", "balance", "dryRun"],
+      "fields": ["applied", "changed", "currentBalanceBefore", "currentBalanceAfter", "laterSnapshotOn"]
+    },
+    "set_manual_holdings": {
+      "parameters": ["accountId", "asOfDate", "positions", "statementBalance", "symbol", "name", "quantity", "price", "value", "costBasis", "dryRun"],
+      "fields": ["applied", "positions", "action", "warnings"]
+    },
+    "add_investment_activity": {
+      "parameters": ["accountId", "activity", "date", "kind", "amount", "symbol", "name", "quantity", "price", "dryRun"],
+      "fields": ["applied", "added", "alreadyRecorded"]
+    }
   }
 }
