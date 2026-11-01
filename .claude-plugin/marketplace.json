@@ -9,7 +9,7 @@
     {
       "name": "sagefin",
       "source": "./",
-      "description": "Connects Claude to your SageFin household and teaches it to work on your books: categorize what is uncategorized, and suggest rules that keep it that way."
+      "description": "Connects Claude to your SageFin household and teaches it to work on your books: categorize what is uncategorized, suggest rules that keep it that way, and keep accounts SageFin cannot connect current from their statements."
     }
   ]
 }

@@ -1,8 +1,8 @@
 {
   "name": "sagefin",
   "displayName": "SageFin",
-  "version": "0.2.0",
-  "description": "Connects Claude to your SageFin household and teaches it to work on your books: categorize what is uncategorized, and suggest rules that keep it that way.",
+  "version": "0.3.0",
+  "description": "Connects Claude to your SageFin household and teaches it to work on your books: categorize what is uncategorized, suggest rules that keep it that way, and keep accounts SageFin cannot connect current from their statements.",
   "author": {
     "name": "ByteFoo",
     "url": "https://sagefin.app"
@@ -10,5 +10,5 @@
   "homepage": "https://sagefin.app/help/ai-app-access",
   "repository": "https://github.com/bytefoo/sagefin-plugin",
   "license": "MIT",
-  "keywords": ["sagefin", "personal-finance", "budgeting", "categorization"]
+  "keywords": ["sagefin", "personal-finance", "budgeting", "categorization", "statements"]
 }

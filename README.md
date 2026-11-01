@@ -7,8 +7,8 @@ It is two things in one install:
 
 - **The connection.** It registers SageFin's MCP server, so Claude can read your accounts,
   transactions, budgets and categories once you sign in to SageFin.
-- **Skills.** Instructions that teach Claude how to do one job well with those tools. The first is
-  **smart match**.
+- **Skills.** Instructions that teach Claude how to do one job well with those tools: **smart
+  match** and **update from a statement**.
 
 ## Smart match
 
@@ -27,6 +27,26 @@ Claude, running on your machine, can. Smart match has it:
 Nothing changes in SageFin until you accept it there, unless you set a token to apply changes
 immediately. An applied batch can be taken back for 30 days. Claude cannot create a rule; it can
 only suggest one for you to save.
+
+## Update from a statement
+
+Some accounts cannot be connected: a brokerage, a retirement plan, a loan or a card issuer that
+SageFin has no feed for. You keep those as manual accounts, and this skill keeps them current from
+the statement the institution sends you.
+
+Hand Claude the statement, usually a PDF, and it:
+
+1. Reads the closing date and the ending balance or amount owed, and for an investment account
+   each position and each line of activity, and shows you what it read.
+2. Finds the manual account the statement belongs to, or asks you before creating one.
+3. Rehearses every change with a dry run and shows you the before and after.
+4. Once you confirm, records the balance, replaces the positions and adds the activity lines that
+   are new.
+
+It records only what the statement prints, never guesses a figure, and never writes an account
+number anywhere. Running the same statement again changes nothing. Connected accounts are left
+alone: their bank keeps them current. SageFin can also read a statement itself, under **Update from
+statement** on the account.
 
 ## Install
 
@@ -115,8 +135,10 @@ to paste for the app you are connecting.
 - To let the app propose changes, give the token write access and turn on **Allow apps to make
   changes** at the top of the same screen. Without both, it is read-only.
 - Leave bulk changes on **Ask me first** unless you want batches applied without review.
+- For **update from a statement**, tick **Accounts**, and give the token write access.
 
-Then ask it to "run smart match", or to categorize your uncategorized transactions.
+Then ask it to "run smart match", or to categorize your uncategorized transactions, or hand it a
+statement and ask it to update the account.
 
 ## What leaves SageFin
 
@@ -129,7 +151,8 @@ returned by any tool. See
 ## Layout
 
 ```text
-skills/smart-match/SKILL.md        the skill, shared by every client
+skills/smart-match/SKILL.md        the smart match skill, shared by every client
+skills/update-from-statement/      the update from a statement skill
 tools.json                         the server tools the skills name
 
 .claude-plugin/marketplace.json    Claude Code's catalog: one plugin, this repo

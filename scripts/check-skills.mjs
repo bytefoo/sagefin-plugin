@@ -15,7 +15,7 @@ const known = Object.keys(JSON.parse(readFileSync(join(root, "tools.json"), "utf
 
 // A tool name is snake_case with at least one underscore, in backticks, starting with one of the
 // verbs the server uses. Result fields such as `next_cursor` would not match; ours are camelCase.
-const TOOL = /`((?:list|get|set|propose|create|update|assign|upload|suggest|compare)_[a-z_]+)`/g;
+const TOOL = /`((?:list|get|set|propose|create|update|assign|upload|suggest|compare|record|add|rename|move|delete)_[a-z_]+)`/g;
 
 const skillsDir = join(root, "skills");
 const problems = [];
